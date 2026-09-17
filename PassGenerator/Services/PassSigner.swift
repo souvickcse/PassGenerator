@@ -29,6 +29,13 @@ enum PassSigner {
             CMSEncoderSetCertificateChainMode(encoder, .signerOnly)
             CMSEncoderSetHasDetachedContent(encoder, true)
 
+            // Wallet requires the signature to carry a signing-time attribute — without it,
+            // installing the pass fails with "Signature must contain a signing date".
+            status = CMSEncoderAddSignedAttributes(encoder, .attrSigningTime)
+            guard status == errSecSuccess else {
+                throw PassGeneratorError.signingFailed("Could not add the signing time (OSStatus \(status))")
+            }
+
             status = manifestData.withUnsafeBytes { rawBuffer -> OSStatus in
                 guard let baseAddress = rawBuffer.baseAddress else { return errSecParam }
                 return CMSEncoderUpdateContent(encoder, baseAddress, manifestData.count)
