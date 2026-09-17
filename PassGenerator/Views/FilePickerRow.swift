@@ -6,6 +6,7 @@ struct FilePickerRow: View {
     let title: String
     let subtitle: String
     var required: Bool = false
+    var docURL: URL? = nil
     @Binding var data: Data?
     @Binding var fileName: String
 
@@ -25,6 +26,9 @@ struct FilePickerRow: View {
                     Text(title)
                     if required {
                         Text("*").foregroundStyle(.red)
+                    }
+                    if let docURL {
+                        DocInfoButton(url: docURL)
                     }
                 }
                 Text(fileName.isEmpty ? subtitle : fileName)

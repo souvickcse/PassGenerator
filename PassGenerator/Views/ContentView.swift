@@ -10,6 +10,7 @@ struct ContentView: View {
     @State private var errorMessage = ""
     @State private var showingSuccess = false
     @State private var successPath = ""
+    @State private var didCopySerialNumber = false
 
     var body: some View {
         ScrollView {
@@ -110,15 +111,23 @@ struct ContentView: View {
             LabeledField(title: "Description", required: true) {
                 PolishedTextField(icon: "text.alignleft", placeholder: "Shown as the pass's accessibility description", text: $model.passDescription, tint: .blue)
             }
-            LabeledField(title: "Pass Type Identifier", required: true) {
+            LabeledField(title: "Pass Type Identifier", required: true, docURL: AppleDocs.passTypeIdentifier) {
                 PolishedTextField(icon: "tag.fill", placeholder: "pass.com.yourcompany.passname", text: $model.passTypeIdentifier, monospaced: true, tint: .blue)
             }
-            LabeledField(title: "Team Identifier", required: true) {
+            LabeledField(title: "Team Identifier", required: true, docURL: AppleDocs.teamIdentifier) {
                 PolishedTextField(icon: "person.badge.key.fill", placeholder: "10-character Apple Developer Team ID", text: $model.teamIdentifier, monospaced: true, tint: .blue)
             }
             LabeledField(title: "Serial Number", required: true) {
                 HStack(spacing: 10) {
                     PolishedTextField(icon: "number", placeholder: "Unique per pass", text: $model.serialNumber, monospaced: true, tint: .blue)
+                    Button {
+                        copySerialNumber()
+                    } label: {
+                        Image(systemName: didCopySerialNumber ? "checkmark" : "doc.on.doc")
+                    }
+                    .buttonStyle(.bordered)
+                    .tint(didCopySerialNumber ? .green : .blue)
+                    .help("Copy serial number")
                     Button {
                         model.regenerateSerialNumber()
                     } label: {
@@ -203,11 +212,11 @@ struct ContentView: View {
                 .font(.caption)
                 .foregroundStyle(.secondary)
 
-            FilePickerRow(title: "Pass Certificate (.p12)", subtitle: "Exported from Keychain Access", required: true, data: $model.p12Data, fileName: $model.p12FileName)
-            LabeledField(title: "Certificate Password", required: true) {
-                PolishedTextField(icon: "key.fill", placeholder: "Password used when exporting the .p12", text: $model.p12Password, isSecure: true, tint: .red)
+            FilePickerRow(title: "Pass Certificate (.p12)", subtitle: "Exported from Keychain Access", required: true, docURL: AppleDocs.buildingAPass, data: $model.p12Data, fileName: $model.p12FileName)
+            LabeledField(title: "Certificate Password") {
+                PolishedTextField(icon: "key.fill", placeholder: "Leave blank if the .p12 has no password", text: $model.p12Password, isSecure: true, tint: .red)
             }
-            FilePickerRow(title: "Apple WWDR Certificate", subtitle: "Worldwide Developer Relations intermediate certificate", required: true, data: $model.wwdrData, fileName: $model.wwdrFileName)
+            FilePickerRow(title: "Apple WWDR Certificate", subtitle: "Worldwide Developer Relations intermediate certificate", required: true, docURL: AppleDocs.wwdrCertificate, data: $model.wwdrData, fileName: $model.wwdrFileName)
         }
     }
 
@@ -257,6 +266,15 @@ struct ContentView: View {
         .padding(.bottom, 20)
     }
 
+    private func copySerialNumber() {
+        NSPasteboard.general.clearContents()
+        NSPasteboard.general.setString(model.serialNumber, forType: .string)
+        didCopySerialNumber = true
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.2) {
+            didCopySerialNumber = false
+        }
+    }
+
     private func generate() {
         isGenerating = true
         defer { isGenerating = false }
@@ -291,6 +309,7 @@ private struct SectionCard<Content: View>: View {
     let title: String
     let systemImage: String
     let tint: Color
+    var docURL: URL? = nil
     @ViewBuilder var content: Content
 
     var body: some View {
@@ -306,6 +325,9 @@ private struct SectionCard<Content: View>: View {
                 }
                 Text(title)
                     .font(.headline)
+                if let docURL {
+                    DocInfoButton(url: docURL)
+                }
             }
             content
         }
@@ -326,6 +348,7 @@ private struct SectionCard<Content: View>: View {
 private struct LabeledField<Content: View>: View {
     let title: String
     var required: Bool = false
+    var docURL: URL? = nil
     @ViewBuilder var content: Content
 
     var body: some View {
@@ -337,6 +360,9 @@ private struct LabeledField<Content: View>: View {
                     .foregroundStyle(.secondary)
                 if required {
                     Text("*").font(.system(size: 11, weight: .semibold)).foregroundStyle(.red)
+                }
+                if let docURL {
+                    DocInfoButton(url: docURL)
                 }
             }
             content

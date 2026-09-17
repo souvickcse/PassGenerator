@@ -56,7 +56,6 @@ final class PassFormModel: ObservableObject {
         if iconData == nil { missing.append("Icon image") }
         if logoData == nil { missing.append("Logo image") }
         if p12Data == nil { missing.append("Pass certificate (.p12)") }
-        if p12Password.isEmpty { missing.append("Certificate password") }
         if wwdrData == nil { missing.append("Apple WWDR certificate") }
         if barcodeEnabled && barcodeMessage.trimmingCharacters(in: .whitespaces).isEmpty { missing.append("Barcode message") }
         return missing

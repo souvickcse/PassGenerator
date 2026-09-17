@@ -5,6 +5,7 @@ import SwiftUI
 struct FieldsSectionView: View {
     let title: String
     var tint: Color = .accentColor
+    var docURL: URL? = nil
     @Binding var fields: [PassFieldEntry]
 
     var body: some View {
@@ -13,6 +14,9 @@ struct FieldsSectionView: View {
                 Text(title)
                     .font(.subheadline.weight(.semibold))
                     .foregroundStyle(tint)
+                if let docURL {
+                    DocInfoButton(url: docURL)
+                }
                 Spacer()
                 Button {
                     fields.append(PassFieldEntry())

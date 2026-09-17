@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0982F992B06D2778C4349363 /* PolishedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615DB74A42726E50727F48E4 /* PolishedTextField.swift */; };
+		12E92FB4DEFCCC1D943BDAD6 /* DocInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDF7020FA7B0FFCC9C7DE2D /* DocInfoButton.swift */; };
 		16860C3D2E34945A954E97DF /* FilePickerRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E57E9E32037925D1A829E10 /* FilePickerRow.swift */; };
 		2B2ED59C53C48AB495D0AE5C /* PassPackager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F1EBABF19FDBDF2E0F3CC /* PassPackager.swift */; };
 		2B797FB97A4E719E1EEC9E64 /* PassFieldEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8F90BF4CE10B4B4442DAA1D /* PassFieldEntry.swift */; };
@@ -41,6 +42,7 @@
 		C8F90BF4CE10B4B4442DAA1D /* PassFieldEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassFieldEntry.swift; sourceTree = "<group>"; };
 		CAC8D4E7D8ABFBB2C2BC0196 /* PassSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassSigner.swift; sourceTree = "<group>"; };
 		DC67231976A6C927AD045E04 /* PassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DCDF7020FA7B0FFCC9C7DE2D /* DocInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoButton.swift; sourceTree = "<group>"; };
 		F3E4E1E52078CD1BC7B1DF8D /* FieldsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				28B2DEDE25EBBA2BDB02CB43 /* ContentView.swift */,
+				DCDF7020FA7B0FFCC9C7DE2D /* DocInfoButton.swift */,
 				F3E4E1E52078CD1BC7B1DF8D /* FieldsSectionView.swift */,
 				0E57E9E32037925D1A829E10 /* FilePickerRow.swift */,
 				AA7E22B500CD0CEB6E9ED2DD /* ImagePickerRow.swift */,
@@ -189,6 +192,7 @@
 				72BFB52034C6F7E84F6FF68A /* BarcodeFormat.swift in Sources */,
 				B500F17DCC706FD2169EC06C /* Color+PassKit.swift in Sources */,
 				8E907950C604FB7ACDC1CE7B /* ContentView.swift in Sources */,
+				12E92FB4DEFCCC1D943BDAD6 /* DocInfoButton.swift in Sources */,
 				6FAC5D40F03A90C40E05B9C4 /* FieldsSectionView.swift in Sources */,
 				16860C3D2E34945A954E97DF /* FilePickerRow.swift in Sources */,
 				CD82DCFD77C309435B8DD9A5 /* ImagePickerRow.swift in Sources */,

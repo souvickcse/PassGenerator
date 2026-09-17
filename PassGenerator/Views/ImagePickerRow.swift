@@ -7,6 +7,7 @@ struct ImagePickerRow: View {
     let title: String
     let subtitle: String
     var required: Bool = false
+    var docURL: URL? = nil
     @Binding var data: Data?
 
     var body: some View {
@@ -16,6 +17,9 @@ struct ImagePickerRow: View {
                     Text(title)
                     if required {
                         Text("*").foregroundStyle(.red)
+                    }
+                    if let docURL {
+                        DocInfoButton(url: docURL)
                     }
                 }
                 Text(subtitle).font(.caption).foregroundStyle(.secondary)
