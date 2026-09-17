@@ -41,7 +41,7 @@
 		AA7E22B500CD0CEB6E9ED2DD /* ImagePickerRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerRow.swift; sourceTree = "<group>"; };
 		C8F90BF4CE10B4B4442DAA1D /* PassFieldEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassFieldEntry.swift; sourceTree = "<group>"; };
 		CAC8D4E7D8ABFBB2C2BC0196 /* PassSigner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassSigner.swift; sourceTree = "<group>"; };
-		DC67231976A6C927AD045E04 /* Pass Generator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pass Generator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC67231976A6C927AD045E04 /* PassGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCDF7020FA7B0FFCC9C7DE2D /* DocInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocInfoButton.swift; sourceTree = "<group>"; };
 		F3E4E1E52078CD1BC7B1DF8D /* FieldsSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldsSectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,7 +50,7 @@
 		1239D10795C054375FC3BD94 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC67231976A6C927AD045E04 /* Pass Generator.app */,
+				DC67231976A6C927AD045E04 /* PassGenerator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,7 +137,7 @@
 			packageProductDependencies = (
 			);
 			productName = PassGenerator;
-			productReference = DC67231976A6C927AD045E04 /* Pass Generator.app */;
+			productReference = DC67231976A6C927AD045E04 /* PassGenerator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -335,19 +335,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JF4SWPDC3K;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = PassGenerator/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Pass Generator";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p360.passgenerator;
 				PRODUCT_NAME = "Pass Generator";
 				SDKROOT = macosx;
@@ -361,19 +358,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JF4SWPDC3K;
+				CURRENT_PROJECT_VERSION = 2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = PassGenerator/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Pass Generator";
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.p360.passgenerator;
 				PRODUCT_NAME = "Pass Generator";
 				SDKROOT = macosx;
