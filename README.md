@@ -7,6 +7,10 @@ ready to add to Wallet.
 Built with SwiftUI. Signing uses macOS's own `Security.framework` (`CMSEncoder`) directly, so
 there's no OpenSSL dependency and no server involved — everything happens locally on your Mac.
 
+## Screenshot
+
+![Pass Generator main form](docs/screenshots/main-form.png)
+
 ## Features
 
 - **Four pass styles**: Generic, Store Card, Coupon, and Event Ticket.
